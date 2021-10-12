@@ -14,8 +14,21 @@ fun challengeOne(){
     print("Enter your answer: ")
     val userAnswer = readLine()
     if (correctAnswer.contains(userAnswer)){
-        println("Congratulations, you can proceed to the next question:")
+        challengeTwo()
     }else{
         println("Unfortunately, failed this challenge you have.")
     }
+}
+
+fun challengeTwo(){
+    println("Congratulations, you can proceed to the next question:")
+    println("In order to free Anakin, Qui-Gon had to play some dice. Now its your turn to play the dice")
+    println("You need to choose between a low-roll(1-3) or high-roll(4-6)")
+    println("If you predict correctly, you will advance to the next challenge!")
+
+    val numbers = arrayOf(1,2,3,4,5,6)
+    val computerChoice = numbers.random()
+    println(computerChoice)
+
+
 }
