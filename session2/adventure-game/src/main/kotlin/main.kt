@@ -26,9 +26,16 @@ fun challengeTwo(){
     println("You need to choose between a low-roll(1-3) or high-roll(4-6)")
     println("If you predict correctly, you will advance to the next challenge!")
 
-    val numbers = arrayOf(1,2,3,4,5,6)
-    val computerChoice = numbers.random()
-    println(computerChoice)
+    val roll = arrayOf("low","high")
+    val computerRoll = roll.random()
+    println("Enter your answer: ")
+    val userRoll = readLine()
+    println(computerRoll)
+    if(userRoll == computerRoll){
+        println("Lucky eh?")
+    }else{
+        println("Lost the dice game you have")
+    }
 
 
 }
