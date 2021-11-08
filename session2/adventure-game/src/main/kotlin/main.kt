@@ -37,9 +37,38 @@ fun challengeTwo(){
     val allowedResults = if (userGuess == "low") setOf<Int>(1,2,3) else setOf(4,5,6)
         if (allowedResults.contains(diceResult)){
             println("Looks like you had the force on your side, continue young padawan")
-            //challengeThree()
+            challengeThree()
     } else{
         gameOver()
+    }
+}
+
+fun challengeThree(){
+    println("Watto thinks you cheated and wants a rematch")
+    println("What do you say to him?")
+    println("(1) Ok let's do it again")
+    println("(2) Tell him that Jabba will hear of this")
+    println("(3) Try to use force mindtrick on him")
+
+    var userAnswer: Int
+    do {
+        println("Pick an option: 1, 2 or 3?")
+        userAnswer = readLine()?.toInt() ?:0
+    } while (!setOf<Int>(1,2,3).contains(userAnswer))
+
+    when(userAnswer){
+        1 -> {
+            println("Ok time to do this again")
+            challengeTwo()
+        }
+        2 -> {
+            println("Hehehe, c'mon I was just joking ok, let's not involve Jabba in this")
+            //challengeFour()
+        }
+        3 -> {
+            println("You cheater, Jedi mindtricks don't work on me, only money does!")
+            gameOver()
+        }
     }
 }
 
