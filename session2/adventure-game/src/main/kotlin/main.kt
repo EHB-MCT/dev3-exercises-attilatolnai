@@ -1,13 +1,13 @@
 fun main() {
-    println("How much do you know about Star Wars?")
-    println("Let's test your knowledge with these 5 challenges")
+    println("Do you like Star Wars?")
+    println("Then let us play 5 Star Wars based challenges")
     println("May the force be with you")
     challengeOne()
 }
 
 fun challengeOne(){
     println("In a galaxy far, far away")
-    println("2 Jedi found a special kid on a desert planet")
+    println("2 Jedi found a the chosen one on a desert planet")
     println("What is the name of that planet?")
 
     val correctAnswer = setOf<String>("Tatooine","tatooine")
@@ -63,13 +63,33 @@ fun challengeThree(){
         }
         2 -> {
             println("Hehehe, c'mon I was just joking ok, let's not involve Jabba in this")
-            //challengeFour()
+            challengeFour()
         }
         3 -> {
             println("You cheater, Jedi mindtricks don't work on me, only money does!")
             gameOver()
         }
     }
+}
+
+fun challengeFour(){
+    println("The journey to Coruscant is a long one and Anakin is bored")
+    println("He wants to play a game with you")
+    println("Anakin has a number in his head and you have to guess it")
+    println("Don't worry you can guess as much as you want")
+    val answer = rollDice(100)
+    var userGuess : Int
+    do {
+        userGuess = readLine()?.toInt() ?:0
+        if (userGuess == answer){
+            println("Yippey you guessed it")
+            //endGame()
+        }else if (userGuess > answer){
+            println("Aim lower")
+        }else{
+            println("Aim higher")
+        }
+    } while (userGuess != answer)
 }
 
 fun rollDice(sides: Int): Int{
