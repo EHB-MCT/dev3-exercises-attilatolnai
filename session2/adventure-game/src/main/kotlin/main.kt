@@ -24,7 +24,7 @@ fun challengeOne(){
 
 fun challengeTwo(){
     println("Qui-Gon saved Anakin from slavery by playing a game of dice")
-    println("PLay a game of dice and see if you could have saved him?")
+    println("Play a game of dice and see if you could have saved him?")
     println("Rules are simple, predict if the dice will be low(1-3) or high(4-6)")
 
     var userGuess: String
@@ -83,7 +83,7 @@ fun challengeFour(){
         userGuess = readLine()?.toInt() ?:0
         if (userGuess == answer){
             println("Yippey you guessed it")
-            //endGame()
+            endBoss()
         }else if (userGuess > answer){
             println("Aim lower")
         }else{
@@ -92,8 +92,50 @@ fun challengeFour(){
     } while (userGuess != answer)
 }
 
+fun endBoss(){
+    println("Mace Windu and the Jedi council want to test Anakin to see if he trully is the chosen one")
+    println("Solve the councils anagram to prove you are worth being trained as a Jedi")
+
+    val anagrams = mapOf<String, String>(
+        "sde pere" to "speeder",
+        "clo cuni" to "council",
+        "surfi fneg" to "suffering",
+        "lgihe sabtr" to "lightsaber",
+        "ro did" to "droid"
+    )
+    var previouslyTried = mutableSetOf<String>()
+    var triesLeft = 3
+
+    do {
+        var anagram = selectUnusedAnagram(anagrams, previouslyTried)
+        previouslyTried.add(anagram)
+
+        println("What's your solution for the anagram $anagram?")
+        val userAnswer = readLine()
+        if (userAnswer == anagrams[anagram]){
+            succes()
+            return
+        }else{
+            triesLeft--
+            println("Concentrate, you have $triesLeft tries left")
+        }
+    }while (triesLeft > 0)
+    gameOver()
+}
+fun selectUnusedAnagram(anagrams: Map<String, String>, previouslyTried: MutableSet<String>): String{
+    var anagram: String
+    do {
+        anagram = anagrams.entries.shuffled().first().key
+    }while (previouslyTried.contains(anagram))
+    return anagram
+}
+
 fun rollDice(sides: Int): Int{
     return (Math.random() * sides + 1).toInt()
+}
+
+fun succes(){
+    println("You have passed our test, young Jedi")
 }
 
 fun gameOver(){
