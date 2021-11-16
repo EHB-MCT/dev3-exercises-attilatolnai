@@ -1,0 +1,4 @@
+SELECT productName FROM products
+WHERE productCode = "S24_3856"
+
+1956 Porsche 356A Coupe

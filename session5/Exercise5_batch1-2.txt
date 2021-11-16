@@ -1,0 +1,3 @@
+SELECT AVG(buyPrice) FROM products
+
+54.395182

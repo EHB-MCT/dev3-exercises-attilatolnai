@@ -1,0 +1,4 @@
+SELECT productLine FROM products
+WHERE productLine LIKE "%Ships%"
+
+9
