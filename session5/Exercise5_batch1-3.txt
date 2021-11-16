@@ -1,4 +1,4 @@
-SELECT productName FROM products
+SELECT COUNT(productName) FROM products
 WHERE productName LIKE "%Ford%"
 
 15

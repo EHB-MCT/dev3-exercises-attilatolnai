@@ -1,0 +1,5 @@
+SELECT COUNT(*) FROM orders
+INNER JOIN customers ON customers.customerNumber = orders.customerNumber
+WHERE customers.contactFirstName = "Julie" AND customers.contactLastName = "Young"
+
+3

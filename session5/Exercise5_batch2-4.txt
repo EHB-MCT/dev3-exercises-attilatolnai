@@ -1,0 +1,7 @@
+SELECT customers.customerName , AVG(amount) AS average FROM customers
+INNER JOIN payments ON payments.customerNumber = customers.customerNumber
+GROUP BY customers.customerNumber
+ORDER BY average DESC
+LIMIT 1
+
+Collectable Mini Designs Co.   80375.240000

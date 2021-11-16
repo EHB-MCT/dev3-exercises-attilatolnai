@@ -1,0 +1,4 @@
+SELECT COUNT(customers.country), COUNT(customers.creditLimit) FROM customers
+WHERE country = "USA" AND creditLimit = "0"
+
+1

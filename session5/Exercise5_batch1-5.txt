@@ -1,4 +1,4 @@
-SELECT productLine FROM products
+SELECT COUNT(productLine) FROM products
 WHERE productLine LIKE "%Ships%"
 
 9

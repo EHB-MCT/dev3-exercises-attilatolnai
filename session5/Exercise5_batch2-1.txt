@@ -1,0 +1,4 @@
+SELECT COUNT(*) FROM orders
+WHERE customerNumber = "328";
+
+3
