@@ -8,17 +8,21 @@ class Duolingo() {
     )
 
     fun play(){
-        val currentWords = words.shuffled().take(5)
-        //println(currentWords)
+        val currentWords = words.shuffled().take(5).toMutableSet()
+        println(currentWords.count())
 
-        val selectedWord = currentWords.random()
-        println("Please translate '${selectedWord.original}' to dutch")
-        val userAnswer = readLine()
+        while (currentWords.isNotEmpty()){
+            val selectedWord = currentWords.random()
+            println("Please translate '${selectedWord.original}' to dutch")
+            val userAnswer = readLine()
 
-        if (selectedWord.translated == userAnswer){
-            println("Good job!")
-        }else{
-            println("Try again!")
+            if (selectedWord.translated == userAnswer){
+                currentWords.remove(selectedWord)
+            }else{
+                println("Try again!")
+            }
+            println(currentWords.count())
         }
+
     }
 }
