@@ -12,24 +12,24 @@ class Duolingo() {
         Word("garage", "garage", "En")
     )
 
-    fun difficulty(){
-        val normal = 5
-        val easy = 3
-        val hard = 10
+    //fun difficulty(){
+        //val normal = 5
+        //val easy = 3
+        //val hard = 10
 
-        println("Choose a difficulty between 'easy', 'normal' and 'hard'")
-        val userChoice = readLine()
-        if(userChoice == "easy") {
-            val currentWords = words.shuffled().take(easy).toMutableSet()
-            println(currentWords.count())
-        }else if(userChoice == "hard"){
-            val currentWords = words.shuffled().take(hard).toMutableSet()
-            println(currentWords.count())
-        }else if(userChoice == "normal"){
-            val currentWords = words.shuffled().take(normal).toMutableSet()
-            println(currentWords.count())
-        }
-    }
+        //println("Choose a difficulty between 'easy', 'normal' and 'hard'")
+        //val userChoice = readLine()
+        //if(userChoice == "easy") {
+        //    val currentWords = words.shuffled().take(easy).toMutableSet()
+        //    println(currentWords.count())
+        //}else if(userChoice == "hard"){
+        //    val currentWords = words.shuffled().take(hard).toMutableSet()
+        //    println(currentWords.count())
+        //}else if(userChoice == "normal"){
+        //    val currentWords = words.shuffled().take(normal).toMutableSet()
+        //    println(currentWords.count())
+        //}
+    //}
 
     fun play(){
         val currentWords = words.shuffled().take(5).toMutableSet()
