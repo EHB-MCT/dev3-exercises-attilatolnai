@@ -1,4 +1,4 @@
-class Duolingo(val roundSize: Int, val language: String) {
+class Duolingo(var roundSize: Int, val language: String) {
     var words = mutableListOf<Word>(
         FrenchWord("chien", "hond"),
         FrenchWord("voiture", "wagen"),
@@ -13,25 +13,17 @@ class Duolingo(val roundSize: Int, val language: String) {
     )
     init {
         words = words.filter { it.language == language }.toMutableList()
-    }
-    //fun difficulty(){
-        //val normal = 5
-        //val easy = 3
-        //val hard = 10
 
-        //println("Choose a difficulty between 'easy', 'normal' and 'hard'")
-        //val userChoice = readLine()
-        //if(userChoice == "easy") {
-        //    val currentWords = words.shuffled().take(easy).toMutableSet()
-        //    println(currentWords.count())
-        //}else if(userChoice == "hard"){
-        //    val currentWords = words.shuffled().take(hard).toMutableSet()
-        //    println(currentWords.count())
-        //}else if(userChoice == "normal"){
-        //    val currentWords = words.shuffled().take(normal).toMutableSet()
-        //    println(currentWords.count())
-        //}
-    //}
+        println("Choose a difficulty between 'easy' or 'hard'")
+        val userChoice = readLine()
+        if (userChoice == "easy"){
+            roundSize = 4
+        }else if (userChoice == "hard"){
+            roundSize = 6
+        }else{
+            throw Exception("Input was not 'easy' or 'hard'")
+        }
+    }
 
     fun play(){
         val currentWords = words.shuffled().take(roundSize).toMutableSet()
