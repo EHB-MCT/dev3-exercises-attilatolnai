@@ -13,7 +13,6 @@ class Duolingo(var roundSize: Int, val language: String) {
     )
     init {
         words = words.filter { it.language == language }.toMutableList()
-
         println("Choose a difficulty between 'easy' or 'hard'")
         val userChoice = readLine()
         if (userChoice == "easy"){
@@ -33,12 +32,14 @@ class Duolingo(var roundSize: Int, val language: String) {
         while (currentWords.isNotEmpty()){
             val selectedWord = currentWords.random()
             println("Please translate '${selectedWord.original}' to dutch")
+            println("This word has a difficulty level of ${selectedWord.difficultyPoint}")
             val userAnswer = readLine()
 
             if (selectedWord.translated == userAnswer){
                 currentWords.remove(selectedWord)
+                //selectedWord.difficultyPoint--
             }else{
-                println("Try again!")
+                selectedWord.difficultyPoint++
             }
             println(currentWords.count())
         }

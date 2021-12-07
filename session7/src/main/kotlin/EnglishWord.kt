@@ -1,5 +1,5 @@
 class EnglishWord(
     override val original: String,
     override val translated: String
-    ): Word(original, translated,"En") {
+    ): Word(original, translated,"En", difficultyPoint = 1) {
 }
